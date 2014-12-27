@@ -1,0 +1,50 @@
+<div class="row">
+<div class="col-md-7">
+<form name='bookform'  class="horizontal-form" role='form' novalidate>
+	<fieldset>
+		<legend> Add a book</legend>
+		<div class="form-group" ng-class="{'has-error':bookform.name.$invalid && bookform.name.$dirty}">
+			<label for="name" class='control-label'>
+				Book Name
+			</label>
+			<input type="text" id='name' name='name' ng-model='scp.book.name' class='form-control' required ng-minlength=5 ng-maxlength=30>
+			<div ng-messages='bookform.name.$error'>
+				<div ng-message='required'> * Required</div>
+				<div ng-message='minlength'> Min length 5</div>
+				<div ng-message='maxlength'> Max length 30 </div>
+			</div>
+		</div>
+		<div class="form-group" ng-class="{'has-error':bookform.isbn.$invalid && bookform.isbn.$dirty}">
+			<label for="isbn" class='control-label'>
+				Isbn Number
+			</label>
+			<input type="text" id='isbn' name='isbn' ng-model='scp.book.isbn' class='form-control' required ng-minlength=10 ng-maxlength=13>
+			<div class='help-block' ng-messages='bookform.isbn.$error' >
+				<div ng-message='required'> * Required</div>
+				<div ng-message='minlength'> Min length 10</div>
+				<div ng-message='maxlength'> Max length 13 </div>
+			</div>
+		</div>
+		<div class="form-group" ng-class="{'has-error':bookform.image.$invalid && bookform.image.$dirty}">
+			<label for="image" class='control-label'>
+				Image
+			</label>
+			<input type="text" id='image' name='image' ng-model='scp.book.image' class='form-control' required  >
+			<div class='help-block' ng-messages='bookform.image.$error'>
+				<div ng-message='required'>* Required</div>
+				<!-- <div ng-message='ng-pattern'> must be png or jpg</div> -->
+				
+			</div>
+		</div>
+		<div class="form-group">
+			<a  class=' btn btn-primary'  ng-click='scp.add(bookform.$valid)'>Save</a>
+			<a class='btn btn-danger' ui-sref='home'>cancel</a>
+		</div>
+	</fieldset>
+</form>
+</div>
+<div class="col-md-3 col-md-offset-2">
+<h2>Image preview</h2>
+<img style='max-width:50%; width:100%; height:200px;' class='img-responsive' ng-src="{{scp.book.image}}">
+</div>
+</div>

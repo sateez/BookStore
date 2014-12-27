@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>BookStore Application</title>
+	<!-- stylesheets -->
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" href="app/css/toastr.css">
+	<link rel="stylesheet" href="app/css/font-awesome.css">
+	<link rel="stylesheet" href="app/css/style.css">
+	<link rel="stylesheet" href="app/css/animations.css">
+
+	<!-- 3rd party --> 
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="bower_components/angular-resource/angular-resource.js"></script>
+<script src="bower_components/angular/angular-messages.js"></script>
+<script src="bower_components/angular/angular-animate.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="bower_components/toastr/toastr.js"></script>
+
+	<!-- scripts -->
+<script src="app/app.js"></script>
+	<!-- controllers -->
+<script src="app/controllers/homeCtrl.js"></script>
+<script src="app/controllers/booksCtrl.js"></script>
+<script src="app/controllers/bookCtrl.js"></script>
+<script src="app/controllers/editCtrl.js"></script>
+	<!-- services -->
+	<script src="app/services/commonServices.js"></script>
+	<script src="app/services/bookService.js"></script>
+
+	<!-- directives -->
+	<script src="app/directives/spinner.js"></script>
+	
+</head>
+<body ng-app="bookStoreApp">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+	<div class="container">
+		<a ui-sref='home' class="navbar-brand"><i class='fa fa-book pull-left fa-3x'></i>Best BookStore</a>
+		<div class="navbar-header">
+			<button type="button"
+                        class="navbar-toggle"
+                        data-toggle="collapse"
+                        data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+		</div>
+		<div class="navbar-collapse collapse">
+			<ul class="nav navbar-nav">
+					<li>
+						<a ui-sref='books({bookId:0})'> books list</a>
+					</li>
+					<li>
+						<a ui-sref='editbook.add({bookId:0})'><i class="glyphicon glyphicon-plus"></i>add book</a>
+					</li>
+					<li>
+						<a ui-sref='home'>more</a>
+					</li>
+				</ul>	
+		</div>
+	</div>
+</nav>
+	<div class='home fade-animation' ui-view></div>
+	<span data-cc-scroll-to-top></span>
+	
+</body>
+<footer align=center>
+		<h3>Powered by sateez</h3>
+</footer>
+</html>
