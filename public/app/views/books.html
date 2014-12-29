@@ -2,23 +2,23 @@
 <!-- <ul ng-repeat="list in scp.lists">
 	<li > {{list.name}}</li> <a class='btn btn-success' ui-sref='editbook({bookId:list.id})'>edit</a>
 </ul> -->
-<table class="table" >
+<table class="table table-condensed table-bordered table-hover table-striped" >
 	<thead >
-		
+			<td>Image</td>
 			<td>Book Name</td>
 			<td>IDBN</td>
 			<td>Time of Created </td>
 			<td>Book ID</td>
-			<td>Image</td>
 			<td colspan=2></td>
 		
 	</thead>
 	<tr ng-repeat='list in scp.lists'>
-		<td>{{list.name}}</td>
+	<td><img style='max-width:75%; width:100%; height:200px;' class='img-responsive' src="{{list.image}}" alt="{{list.name}}"></td>
+		<td> <a ui-sref='details({bookId:list.id})'>{{list.name}}</a></td>
 		<td>{{list.isbn}}</td>
 		<td>{{list.createdOn | date}}</td>
 		<td>{{list.id}}</td>
-		<td ><img style='max-width:50%; width:100%; height:200px;' class='img-responsive' src="{{list.image}}" alt="{{list.name}}"></td>
+		
 		<td><a class='btn btn-primary' ui-sref='editbook({bookId:list.id})'>EDIT</a></td>
 		<td><a class='btn btn-danger'  ng-click="scp.deleteBook(list)">DELETE</a></td>
 	</tr>

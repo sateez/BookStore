@@ -31,6 +31,20 @@
 						
 						}
 			}
+		}).state('details',{
+			url:'/details/:bookId',
+			templateUrl:'app/views/details.html',
+			controller:'DetailsCtrl',
+			resolve:{
+						books:'bookService',
+						book:function(books,$stateParams){
+							
+							var bookId = $stateParams.bookId  ;
+							if(bookId!=0)
+							return books.get({bookId:bookId}).$promise;
+						
+						}
+			}
 		}).state('editbook.add',{
 				url:'/add',
 				templateUrl:'app/views/editbook.html'
