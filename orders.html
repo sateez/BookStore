@@ -1,0 +1,131 @@
+<!-- Orders Overlay Template -->
+<h1>XFINITY Mobile Order Summary for Order #{{ order.id }}</h1>
+<div class="modesto-info-section box orderInfo">
+    <div class="details-section">
+        <label>Order ID: </label>
+        <span>{{ order.id }}</span>
+    </div>
+    <div class="details-section">
+        <label>Order Date: </label>
+        <span>{{ order.date }}</span>
+    </div>
+    <div class="details-section">
+        <label>Order Status: </label>
+        <span>{{ order.status }}</span>
+    </div>
+    <div class="details-section">
+        <label>Sales Channel: </label>
+        <span>{{ orderIdInfo.salesChannel }}</span>
+    </div>
+    <div class="details-section">
+        <label>Sales Location: </label>
+        <span>{{ orderIdInfo.salesLocation }}</span>
+    </div>
+     <div class="details-section">
+        <label>Agent ID: </label>
+        <span>{{ orderIdInfo.agentId }}</span>
+    </div>
+</div> <!-- end modesto info section -->
+
+<div class="modesto-info-section">
+    <h2>Order Item Summary</h2>
+    <table class="table-primary">
+        <thead>
+            <tr>
+                <th>Line Nickname</th>
+                <th>Device Type</th>
+                <th>Plan</th>
+                <th>Payment Plan</th>
+                <th>MDN</th>
+                <th>IMEI</th>
+                <th>ICCID</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#if order.devices.length}}
+            {{#each order.devices}}
+                <tr>
+                    <td>{{recipient}}</td>
+                    <td>{{deviceType}}</td>
+                    <td>{{basePlan}}</td>
+                    <td>{{paymentPlan}}</td>
+                    <td>{{mdn}}</td>
+                    <td>{{imei}}</td>
+                    <td>{{iccid}}</td>
+                </tr>
+            {{/each}}
+            {{else}}
+                <tr><td colspan="8">No devices in this order</td></tr>
+            {{/if}}
+        </tbody>
+    </table>
+    {{#if order.accessories.length}}
+    	<table class="table-primary table-secondary">
+      		<thead>
+            	<tr>
+                	<th>Accessories</th>
+            	</tr>
+        	</thead>
+         	<tbody>
+     		{{#each order.accessories}}
+                <tr>
+                    <td>{{itemType}}</td>
+                </tr>
+            {{/each}}
+        	</tbody>
+    	</table>
+      {{/if}}
+</div>
+
+<div>
+    <div class="modesto-info-section column45 box">
+        <h3>Payment Details</h3>
+        <div class="details-section">
+            <label>Card Holder Name: </label>
+            <span>{{ order.paymentDetails.cardHolderName }}</span>
+        </div>
+        <div class="details-section">
+            <label>Billing Address: </label>
+            <span>{{ order.paymentDetails.billingAddress }}</span>
+        </div>
+        <div class="details-section">
+            <label>Last Four Credit Card Number: </label>
+            <span> {{ order.paymentDetails.last4CC }}</span>
+        </div>
+    </div>
+    <div class="modesto-info-section column45 box">
+        <h3>Logistics</h3>
+        <div class="details-section">
+            <label>Shipping Address: </label>
+            <span> {{ order.logistics.shippingAddress }} </span>
+        </div>
+        <div class="details-section">
+            <label>Tracking Number: </label>
+            <span><a href="{{ order.logistics.trackingUrl }}" target="_blank">{{ order.logistics.trackingNumber }}</a></span>
+        </div>
+        <div class="details-section">
+            <label>Shipping Method: </label>
+            <span>{{ order.logistics.shippingMethodName }}</span>
+        </div>
+        <div class="details-section">
+            <label>Shipping Status: </label>
+            <span>{{ order.logistics.shippingStatus }}</span>
+        </div>
+        <div class="details-section">
+            <label>Shipped Date: </label>
+            <span>{{ order.logistics.shippedDate}}</span>
+        </div>
+        <div class="details-section">
+            <label>Expected Delivery: </label>
+            <span>{{ order.logistics.expectedDelivery }}</span>
+        </div>
+        <div class="details-section">
+            <label>Actual Delivery: </label>
+            <span>{{ order.logistics.actualDelivery }}</span>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div>
+<div class="cta-center">
+   <button type="button" id="closeOrdersOverlay" class="button-secondary close-order close-modal">Close Order Summary</button>
+</div>

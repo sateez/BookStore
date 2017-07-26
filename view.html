@@ -1,0 +1,172 @@
+<!-- Customer Information Panels Template -->
+
+<h1>Customer Information</h1>
+<h2>{{ customer.firstName }} {{customer.lastName}}</h2>
+
+{{#if customer.isEmployee}}
+    <div>
+        <div class="good">Comcast Employee</div>
+    </div>
+{{/if}}
+
+<div class="fraud-status-div"></div>
+
+<div class="info-panel-container">
+    {{#if voicecare}}
+        <!-- XFINITY Mobile Customer Authentication -->
+        <div id="panel-modesto-authentication" class="panel">
+            <header class="panel-toggle">
+                <h2>XFINITY Mobile Customer Authentication</h2>
+                <span class="toggle-icon icon-chevron-down"></span>
+            </header>
+            <div class="content">
+                <div class="error-container hide" id="modesto-authentication-error"></div>
+                <div class="loading-class" id="modesto-authentication-content"></div>
+            </div>
+        </div>
+        <!-- End of XFINITY Mobile Customer Authentication -->
+
+        <!-- Recent Customer Interactions -->
+        <div id="panel-recent-interactions" class="panel">
+            <header class="panel-toggle">
+                <h2>Recent Customer Interactions</h2>
+                <span class="toggle-icon icon-chevron-down"></span>
+            </header>
+            <div class="content">
+                <div class="error-container hide" id="recent-interactions-error"></div>
+                <div class="loading-class" id="recent-interactions-content"></div>
+            </div>
+        </div>
+        <!-- End of Recent Customer Interactions -->
+
+        <!-- Wireless Details -->
+        <div id="panel-modesto-wireless-details" class="panel">
+            <header class="panel-toggle">
+                <h2>Wireless Details</h2>
+                <span class="toggle-icon  icon-chevron-down"></span>
+            </header>
+            <div class="content">
+                <div class="error-container hide" id="lines-data-error"></div>
+                <div class="loading-class" id="lines-data-content"></div>
+
+                <h3>Orders</h3>
+                <div class="error-container hide" id="order-details-error"></div>
+                <div class="loading-class" id="order-details-content"></div>
+                <div class="cta-center">
+                    <div class="telesales-wrapper my-account-wrapper">
+                        <a id="my-account-view-link" class="button-primary telesales-button" target="_blank" href='{{store "my-account-href"}}'>
+                            View Customer's Account
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End of Wireless Details -->
+
+        <!-- Xfinity Service Account Details -->
+        <div id="panel-xfinity-service-account-details" class="panel">
+            <header class="panel-toggle">
+                <h2>XFINITY Service Account Details</h2>
+                <span class="toggle-icon  icon-chevron-down"></span>
+            </header>
+            <div class="content">
+                <div class="error-container hide" id="xfinity-details-error"></div>
+                <div id="xfinity-details-content" class="loading-class"></div>
+            </div>
+        </div>
+        <!-- End of Xfinity Service Account Details -->
+
+        <!-- Account Billing Details -->
+        <div id="panel-modesto-billing-details" class="panel">
+            <header class="panel-toggle">
+                <h2>Account Billing Details</h2>
+                <span class="toggle-icon  icon-chevron-down"></span>
+            </header>
+            <div class="content">
+                <div class="error-container hide" id="account-billing-error"></div>
+                <div id="account-billing-content" class="loading-class"></div>
+            </div>
+            <!-- end content -->
+        </div>
+        <!-- End of Account Billing Details -->
+
+        <!-- Usage Details -->
+        <div id="panel-usage-details" class="panel">
+            <header class="panel-toggle">
+                <h2>Usage Details</h2>
+                <span class="toggle-icon  icon-chevron-down"></span>
+            </header>
+            <div class="content">
+                <div class="error-container hide" id="usage-details-error"></div>
+                <div id="usage-details-content" class="loading-class"></div>
+            </div>
+            <!-- end content -->
+        </div>
+        <!-- End of Usage Details -->
+
+        <!-- Customer Contact Details -->
+        <div id="panel-customer-contact-details" class="panel">
+            <header class="panel-toggle">
+                <h2>Customer Contact Details </h2>
+                <span class="toggle-icon  icon-chevron-down"></span>
+            </header>
+            <div class="content">
+                <div class="error-container hide" id="customer-contact-error"></div>
+                <div id="customer-contact-content" class="loading-class"></div>
+            </div>
+            <!-- end content -->
+        </div>
+        <!-- End of Customer Contact Details -->
+
+        <!-- Preorder Details -->
+                <div id="panel-preorder-details" class="panel">
+                    <header class="panel-toggle">
+                        <h2>Pre-Order Details </h2>
+                        <span class="toggle-icon  icon-chevron-down"></span>
+                    </header>
+                    <div class="content">
+                        <div class="error-container hide" id="customer-contact-error"></div>
+                        <div id="customer-contact-content" class="loading-class"></div>
+                        <h3>Orders</h3>
+                        <div class="error-container hide" id="order-details-error"></div>
+                        <div class="loading-class" id="order-details-content"></div>
+                    </div>
+                    <!-- end content -->
+                </div>
+                <!-- End of Preorder Details -->
+
+    {{/if}}
+    {{#if telesales}}
+        <!-- Xfinity Customer Authentication -->
+        <div id="panel-xfinity-authentication" class="panel">
+            <header class="panel-toggle">
+                <h2>XFINITY Customer Authentication</h2>
+                <span class="toggle-icon  icon-chevron-down"></span>
+            </header>
+            <div class="content">
+                <div class="error-container hide" id="xfinity-authentication-error"></div>
+                <div id="xfinity-authentication-content" class="loading-class"></div>
+            </div>
+        </div>
+        <!-- End of Xfinity Customer Authentication -->
+
+        <!-- Xfinity Service Account Details -->
+        <div id="panel-xfinity-account" class="panel">
+            <header class="panel-toggle">
+                <h2>XFINITY Service Account Details</h2>
+                <span class="toggle-icon  icon-chevron-down"></span>
+            </header>
+            <div class="content">
+                <div class="error-container hide" id="xfinity-account-details-error"></div>
+                <div id="xfinity-account-details-content" class="loading-class"></div>
+            </div>
+        </div>
+    {{/if}}
+</div>
+<!-- End of Xfinity Service Account Details -->
+
+
+
+<!-- Telesales Button-->
+<div id="telesales-button"></div>
+<!-- End of Telesales -->
